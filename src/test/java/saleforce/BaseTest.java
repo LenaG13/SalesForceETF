@@ -23,6 +23,7 @@ public class BaseTest {
 //        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--ignore-popup-blocking");
+//        chromeOptions.addArguments("--disable-popup-blocking");
 //        chromeOptions.addArguments("--ignore-certificate-errors");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
