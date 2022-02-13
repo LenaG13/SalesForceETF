@@ -4,6 +4,7 @@ import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreateAccountFormComponent extends AbstractComponent {
@@ -27,7 +28,10 @@ public class CreateAccountFormComponent extends AbstractComponent {
     }
 
     public void save() {
-        driver.findElement(SAVE_BUTTON).click();
+        WebElement button = driver.findElement(SAVE_BUTTON);
+        System.out.printf("button is displayed: %s\n", button.isDisplayed());
+        System.out.printf("button is enabled: %s\n", button.isEnabled());
+        button.click();
     }
 
 }
