@@ -35,10 +35,17 @@ public class AccountPage extends BasePage {
     }
 
     public void openDetails() {
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DETAILS_BUTTON));
+        /*explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DETAILS_BUTTON));
         driver.findElement(DETAILS_BUTTON).click();
         explicitlyWait.until(ExpectedConditions.attributeContains(DETAILS_BUTTON, "aria-selected", "true"));
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DETAILS_TAB_PANEL));*/
+
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DETAILS_BUTTON));
+        By by = DETAILS_BUTTON;
+        driver.findElement(by).click();
+        explicitlyWait.until(ExpectedConditions.attributeContains(DETAILS_BUTTON, "aria-selected", "true"));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DETAILS_TAB_PANEL));
+
     }
 
 }

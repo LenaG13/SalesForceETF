@@ -10,9 +10,9 @@ public class AddAccountTest extends BaseTest {
 
     AccountModel testAccount = AccountModelUtils.getDefaultAccountModel();
     AccountModel testAccount2 = AccountBuilder
-            .defaultAccount()
-            .setPhone("232")
-            .build();
+                                    .defaultAccount()
+                                    .setPhone("123")
+                                    .build();
 
     @Test
     public void addNewAccountTest() {
@@ -20,23 +20,29 @@ public class AddAccountTest extends BaseTest {
                 .openSaleforceLoginPage()
                 .loginWithValidCreds()
                 .openAccountPage()
-                .createNewAccount()
-                .validateAccountCreated();
-        //.validateAccountCreated(testAccount);
+                .createNewAccount(testAccount)
+                .validateAccountCreated(testAccount);
     }
 
     private AccountModel buildTestAccount() {
         return AccountBuilder.newValues()
-                .setAccountName("USERNAME")
-                .setPhone("+37529123123")
+                .setAccountName("USER1")
+                .setPhone("+48534032897")
+                .setFax("+48534033654")
                 .setWebsite("teachmeskills.by")
-                .setEmployees(10)
-                .setType("Customer")
-                .setIndustry("Banking")
+                .setType("Integrator")
+                .setEmployees(13)
+                .setIndustry("Energy")
+                .setAnnualRevenue(13000)
+                .setDescription("Identifying and working with element objects in the DOM")
+                //.setBillingStreet("Magiczna")
+                //.setBillingCity("Warszawa")
+                //.setBillingCode("12-345")
+                //.setBillingCountry("Polska")
                 .build();
     }
 
-    /*private AccountModel getTestAccount() {
+    private AccountModel getTestAccount() {
         AccountModel accountModel = new AccountModel();
         accountModel.setAccountName("USER1");
         accountModel.setPhone("+48534032897");
@@ -47,11 +53,11 @@ public class AddAccountTest extends BaseTest {
         accountModel.setIndustry("Energy");
         accountModel.setAnnualRevenue(13000);
         accountModel.setDescription("Identifying and working with element objects in the DOM");
-        accountModel.setBillingStreet("Magiczna");
-        accountModel.setBillingCity("Warszawa");
-        accountModel.setBillingCode("12-345");
-        accountModel.setBillingCountry("Polska");
+        //accountModel.setBillingStreet("Magiczna");
+        //accountModel.setBillingCity("Warszawa");
+        //accountModel.setBillingCode("12-345");
+        //accountModel.setBillingCountry("Polska");
         return accountModel;
-    }*/
+    }
 
 }
