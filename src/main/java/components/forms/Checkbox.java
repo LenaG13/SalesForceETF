@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class Checkbox extends AbstractComponent {
 
     private static final String CHECKBOX_LOCATOR_PATTERN =
-            "div[contains(@class,'isModal')]//*[@type=\"checkbox\"]";
+            "//div[contains(@class,'isModal')]//*[@type=\"checkbox\"]";
     private By checkBox;
 
     public Checkbox(WebDriver driver) {

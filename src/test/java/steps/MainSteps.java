@@ -11,7 +11,7 @@ public class MainSteps extends AbstractStep {
 
     private SalesforceLoginPage loginPage;
     private HomePage homePage;
-    //    private AccountPage accountPage;
+    //private AccountPage accountPage;
     private AccountsButton accountsButton;
     private static final String VALID_LOGIN = System.getProperty("login");
     private static final String VALID_PASSWORD = System.getProperty("password");
