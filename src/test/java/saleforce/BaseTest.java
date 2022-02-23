@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import steps.AccountsSteps;
+import steps.ContactsSteps;
 import steps.MainSteps;
 
 import java.time.Duration;
@@ -15,6 +16,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected MainSteps mainSteps;
     protected AccountsSteps accountsSteps;
+    protected ContactsSteps contactsSteps;
 
     @BeforeMethod
     public void setup() {
@@ -29,6 +31,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         mainSteps = new MainSteps(driver);
         accountsSteps = new AccountsSteps(driver);
+        contactsSteps = new ContactsSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true)

@@ -9,10 +9,16 @@ public class Dropdown extends AbstractComponent {
 
     private static final String DROPDOWN_LOCATOR_PATTERN =
             "//span[@id and contains(.,'%s')]/ancestor::div[contains(@class,'uiInput')]//div[@data-aura-class='uiPopupTrigger']";
-    private String label;
-    private By dropdownLocator;
     private static final String OPTION_LIST_PATTERN =
             "//div[@aria-labelledby='%s']//li[contains(.,'%s')]";
+
+    private static final String CONTACT_DROPDOWN_LOCATOR_PATTERN =
+            "//label[contains(text(),'%s')]/ancestor::lightning-picklist//button";
+    private static final String CONTACT_OPTION_LIST_PATTERN =
+            "//lightning-base-combobox-item[contains(@data-value,'%s')]";
+
+    private String label;
+    private By dropdownLocator;
 
 
     public Dropdown(WebDriver driver, String label) {
