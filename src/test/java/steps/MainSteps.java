@@ -1,9 +1,11 @@
 package steps;
 
 import components.buttons.menu.AccountsButton;
+import components.buttons.menu.ContactsButton;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AccountPage;
+import pages.ContactPage;
 import pages.HomePage;
 import pages.SalesforceLoginPage;
 
@@ -11,8 +13,9 @@ public class MainSteps extends AbstractStep {
 
     private SalesforceLoginPage loginPage;
     private HomePage homePage;
-    //private AccountPage accountPage;
     private AccountsButton accountsButton;
+    private ContactsButton contactsButton;
+
     private static final String VALID_LOGIN = System.getProperty("login");
     private static final String VALID_PASSWORD = System.getProperty("password");
 
@@ -43,6 +46,17 @@ public class MainSteps extends AbstractStep {
         accountsButton.click();
         validatePageIsLoaded(new AccountPage(driver));
         return new AccountsSteps(driver);
+    }
+
+    public ContactsSteps openContactPage() {
+        contactsButton = new ContactsButton(driver);
+        Assert.assertTrue(
+                contactsButton.isComponentDisplayed(),
+                contactsButton.getClass().getSimpleName().concat(" not displayed")
+        );
+        contactsButton.click();
+        validatePageIsLoaded(new ContactPage(driver));
+        return new ContactsSteps(driver);
     }
 
 }
